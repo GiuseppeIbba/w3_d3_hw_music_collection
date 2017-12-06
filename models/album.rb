@@ -23,11 +23,7 @@ class Album
   end
 
   def artist()
-    sql = "SELECT * FROM artists WHERE id = $1"
-    values = [@artist_id]
-    artist_hash_array = SqlRunner.run(sql, values)
-    artist_hash = artist_hash_array[0]
-    return Artist.new(artist_hash)
+    return Artist.find_by_id(@artist_id)
   end
 
   def Album.list_all()
@@ -43,6 +39,5 @@ class Album
     album = Album.new(albums_hash)
     return album
   end
-
 
 end
