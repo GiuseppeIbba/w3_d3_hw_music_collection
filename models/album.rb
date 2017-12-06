@@ -22,4 +22,9 @@ class Album
     SqlRunner.run("DELETE FROM albums")
   end
 
+  def Album.list_all()
+    albums = SqlRunner.run('SELECT * FROM albums;')
+    return albums.map {|album| Album.new(album)}
+  end
+
 end
