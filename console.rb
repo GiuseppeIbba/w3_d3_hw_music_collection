@@ -10,10 +10,10 @@ artist1 = Artist.new({
   })
 artist1.save
 
-artist1 = Artist.new({
+artist2 = Artist.new({
   'name'=>'Queen'
   })
-artist1.save
+artist2.save
 
 album1 = Album.new({
   'title' => 'Ride the lightning',
@@ -28,6 +28,28 @@ album2 = Album.new({
   'artist_id' => artist1.id
   })
 album2.save
+
+album3 = Album.new({
+  'title' => 'Greatest Hits I',
+  'genre' => 'Rock',
+  'artist_id' => artist2.id
+  })
+
+album4 = Album.new({
+  'title' => 'Greatest Hits II',
+  'genre' => 'Rock',
+  'artist_id' => artist2.id
+  })
+
+album5 = Album.new({
+  'title' => 'Greatest Hits III',
+  'genre' => 'Rock',
+  'artist_id' => artist2.id
+  })
+
+album3.save
+album4.save
+album5.save
 
 Album.list_all
 Artist.list_all
