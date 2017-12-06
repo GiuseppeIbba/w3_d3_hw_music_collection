@@ -32,6 +32,15 @@ def Artist.list_all()
   return artists.map {|artist| Artist.new(artist)}
 end
 
+def Artist.find_by_id(id)
+  sql = "SELECT * FROM artists WHERE id = $1"
+  values = [id]
+  artists_array = SqlRunner.run(sql, values)
+  artists_hash = artists_array[0]
+  artist = Artist.new(artists_hash)
+  return artist
+end
+
 
 
 
